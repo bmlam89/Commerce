@@ -1,0 +1,21 @@
+{
+  "name": "belt_review",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "emailjs": "^1.0.12",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.12.4",
+    "nodemailer": "^4.3.1",
+    "password-hash": "^1.2.2",
+    "path": "^0.12.7"
+  }
+}

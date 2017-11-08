@@ -1,0 +1,72 @@
+
+
+        <!-- Content -->
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1> Welcome to the Marketplace! A place to buy and sell goods.</h1>
+                            <div class="description">
+                            	<span>
+	                            	Don't have an account? Please <a [routerLink]="['register']" style="color:blue;">sign up</a> before loggin in.
+                            	</span>
+                            </div>
+                            <div class="top-big-link">
+                            	<a class="btn btn-link-1 launch-modal"  href="" data-modal-id="modal-login">Sign In</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- MODAL -->
+        <div class="modal" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-register-label">Please sign in</h3>
+        				<p>Fill in the form below to get instant access:</p>
+        			</div>
+        			
+        			<div class="modal-body">
+        				
+	                    <form role="form" name="formData" (submit)="login(formData)" #formData="ngForm" class="registration-form">
+	                    	<div class="form-group">
+                          
+	                        <div class="form-group">
+	                        	<label class="sr-only" for="email">Email</label>
+	                        	<input type="text" name="email" placeholder="Email..." class="form-email form-control" id="form-email" required 
+                            pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' [(ngModel)]="temp.email" #email="ngModel">
+	                        </div>
+
+	                        <div class="form-group">
+	                        	<label class="sr-only" for="password">Password</label>
+	                        	<input type="password" name="password" placeholder="Password..." class="form-email form-control" id="form-email" [(ngModel)]="temp.password" #password="ngModel" required minlength=8>
+	                        </div>
+                          <span class="x" *ngIf="!password.valid && password.dirty">Password is required and must be at least 8 characters in length!</span>
+	                        <button [disabled]="!formData.valid" type="submit" class="btn">Sign In</button>
+                        </div>
+                        <span class="x" *ngIf="attempt">Invalid email or password!</span>
+	                    </form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>
+
+
+
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    
+

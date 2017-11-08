@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h3 class="text-left">My Products</h3>
+    <div class="text-left">
+      <a [routerLink]="['browse']" class="x">Browse</a>
+      <a [routerLink]="['listing']" class="y">My Listings</a>
+      <a [routerLink]="['home']" class="y">Sign Out</a>
+    </div>
+  </div><br><br>
+
+
+  <div class="row">
+    <h3 class="text-left">Post A Listing</h3>
+    <form name="formData"  (submit)="post_product(formData)" #formData="ngForm">
+      
+      <div class="col-sm-4 z text-left blam">
+        <h5 class="text-left">Image Upload</h5>
+        <input type="text" name="url" class="text-left" placeholder=" Product image url" [(ngModel)]="temp.url">
+      </div>
+
+      
+      <div class="col-sm-6 z text-left">
+        <h5>Title</h5>
+        <input type="text" placeholder="Product title" name="title" required [(ngModel)]="temp.title" #title="ngModel">
+        <span class="err" *ngIf="!title.valid && title.dirty">Title field is required</span>
+        
+        <h5>Description</h5>
+        <textarea class="abc" name="desc" placeholder="Product decription" required [(ngModel)]="temp.desc" #desc="ngModel"></textarea>
+        <span class="err" *ngIf="!desc.valid && desc.dirty">Description field is required</span>
+      </div>
+      
+      
+      <div class="col-sm-2 z text-left">
+        <h5>Price</h5>
+        <input type="text" name="price" class="zz" placeholder="Product price" required [(ngModel)]="temp.price" #price="ngModel">
+        <span class="err" *ngIf="!price.valid && price.dirty">Price field is required</span>
+
+        <h5>Location</h5>
+        <input type="text" name="location" class="zz" placeholder="Product location" required [(ngModel)]="temp.location" #location="ngModel">
+        <span  class="err" *ngIf="!location.valid && location.dirty">Location is required</span><br>
+        <button [disabled]="!formData.valid" type="submit" class="btn yy">Sell My Product!</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
