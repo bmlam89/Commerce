@@ -1,5 +1,54 @@
+.yyy{
+    border-left: solid thin black;
+    margin-left: 15px;
+    padding-left: 15px;
+}
+
+
+
 .y{
     border-left: solid thin black;
     margin-left: 15px;
     padding-left: 15px;
+}
+.z{
+    border:solid thin black;
+    height:252px;
+}
+.zz{
+    width:100%;
+}
+.yy{
+    background-color: red;
+    margin-top: 10px;
+}
+
+.cont{
+    background-color: lightskyblue;
+    margin-top: 10px;
+}
+
+.abc{
+    width:100%;
+    height:100px;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    border:solid thin blue;
+}
+
+.blam{
+    height:252px;
+    
+}
+.imgholder{
+    width:290px;
+    height:202px;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    margin-left:35px;
+    margin-right: 65px;
+    border:solid thin blue;
+}
+.err{
+    color: red;
 }

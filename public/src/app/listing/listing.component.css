@@ -24,10 +24,36 @@
     margin-top: 15px;
 }
 
+.abcz{
+    width:100%;
+    height:130px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
 .blam{
     height:252px;
 }
 
 .err{
     color: red;
+}
+
+.footer{
+    width:100%;
+    height:100px;
+}
+
+.dd{
+    background-color: green;
+    margin-top: 15px;
+}
+
+.cc{
+    background-color: red;
+    margin-top: 15px;
+}
+
+.edit{
+    height:340px;
 }

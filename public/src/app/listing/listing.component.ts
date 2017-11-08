@@ -9,6 +9,7 @@ import {ApiService} from '../api.service';
 export class ListingComponent implements OnInit {
 
   id;
+  products = [];
   temp = {
     url:'',
     title:'',
@@ -21,13 +22,17 @@ export class ListingComponent implements OnInit {
   ngOnInit()
   {
     this.id = this.service.id;
-    console.log('inside listing component with user id:',this.id);
+    this.service.get_products(
+      (response)=>{
+        this.products = response.json()['products'];
+      }
+    )
   }
 
   post_product(form)
   {
     this.service.post_product(form);
-    //this.router.navigate(['listing']);
+    this.router.navigate(['listing']);
   }
 
 }

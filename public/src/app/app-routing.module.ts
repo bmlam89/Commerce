@@ -10,6 +10,7 @@ const routes: Routes = [
   {path:'register',component:HomepageComponent},
   {path:'browse',component:BrowseComponent},
   {path:'browse/:id',redirectTo:'listing'},
+  {path:'browse/browse',redirectTo:'browse'},
   {path:'listing',component:ListingComponent},
   {path:'listing/browse',redirectTo:'browse'},
   {path:'listing/home',redirectTo:''},

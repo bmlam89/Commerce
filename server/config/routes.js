@@ -9,7 +9,7 @@ module.exports = function(app)
     app.post('/create_user',user_controller.create_user);
     app.post('/signin',user_controller.signin);
     app.get('/products',product_controller.get_products);
-    //app.post('/post_product',product_controller.post_product);
+    app.post('/post_product',product_controller.post_product);
     app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"));
     });

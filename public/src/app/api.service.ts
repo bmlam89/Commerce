@@ -12,6 +12,9 @@ export class ApiService {
   password;
   id;
 
+/* product service variables */
+products = [];
+
   /* user service methods */
   create_user(form)
   {
@@ -37,6 +40,7 @@ export class ApiService {
     return this.http.post('/signin',{email:this.email,password:this.password}).subscribe(
       (response)=>{
         callback(response);
+        this.products = response.json()['products'];
       }
     )
   }
@@ -55,11 +59,11 @@ export class ApiService {
   {
     var product = new Product(form,this.id);
     console.log(product,"INSIDE SERVICE");
-    /*return this.http.post('/post_product',{product:product,id:this.id}).subscribe(
+    return this.http.post('/post_product',{product:product}).subscribe(
       (response)=>{
         console.log("successfully created product!");
       }
-    )*/
+    )
   }
 
 }
