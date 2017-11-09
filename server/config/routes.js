@@ -10,6 +10,8 @@ module.exports = function(app)
     app.post('/signin',user_controller.signin);
     app.get('/products',product_controller.get_products);
     app.post('/post_product',product_controller.post_product);
+    app.post('/update_product',product_controller.update_product);
+    app.post('/delete_product',product_controller.delete_product);
     app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"));
     });

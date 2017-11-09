@@ -23,12 +23,21 @@ module.exports = {
         
         var password = hash.generate(request.body.user.password);
         var user = new User({first:request.body.user.first,last:request.body.user.last,email:request.body.user.email,password:password});
-        user.save(function(err){
-            if(err)
-            {
-                console.log(err);
+        User.find({email:user.email},function(err,users){
+            if(users.length==0){
+                user.save(function(err){
+                    if(err){
+                        console.log("something went wrong creating user",err);
+                    }else{
+                        response.json({users:[user]})
+                    }
+                })
+                
+            }else{
+                response.json({users:[]});
             }
         })
+        
     },
 
     signin:function(request,response)

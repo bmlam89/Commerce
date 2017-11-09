@@ -22,4 +22,10 @@ export class BrowseComponent implements OnInit {
     )
   }
 
+  delete_product(id)
+  {
+    this.service.delete_product(id);
+    this.router.navigate(['browse']);
+  }
+
 }

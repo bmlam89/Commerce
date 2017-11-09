@@ -11,17 +11,19 @@ export class ApiService {
   email;
   password;
   id;
-
-/* product service variables */
-products = [];
+  users = []
+  /* product service variables */
+  products = [];
 
   /* user service methods */
-  create_user(form)
+  
+  create_user(form,callback)
   {
+    
     var user = new User(form.value.first,form.value.last,form.value.email,form.value.password);
-    return this.http.post('/create_user',{'user':user}).subscribe(
+    return this.http.post('/create_user',{user:user}).subscribe(
       (response)=>{
-        console.log("successfully created user");
+        callback(response);
       }
     )
   }
@@ -66,4 +68,23 @@ products = [];
     )
   }
 
+  update_product(form,id)
+  {
+    return this.http.post('/update_product',{product:form,id:id}).subscribe(
+      (response)=>{
+        console.log("successfully updated product");
+      }
+    )
+  }
+
+  delete_product(id)
+  {
+    return this.http.post('/delete_product',{id:id}).subscribe(
+      (response)=>{
+        console.log("successfully deleted listing");
+      }
+    )
+  }
+
 }
+

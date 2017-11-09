@@ -39,5 +39,30 @@ module.exports = {
                }
            })           
        })
+   },
+
+   update_product:function(request,response)
+   {
+       Product.findOne({_id:request.body.id},function(err,product){
+           product.title = request.body.product.title;
+           product.price = request.body.product.price;
+           product.url = request.body.product.url;
+           product.desc = request.body.product.desc;
+           product.location = request.body.product.location;
+           product.save(function(err){
+               if(err){
+                   console.log(err,"something happened with updating product");
+               }
+           })
+       })
+   },
+   
+   delete_product:function(request,response)
+   {
+       Product.remove({_id:request.body.id},function(err){
+           if(err){
+               console.log("something went wrong with deleting product",err);
+           }
+       })
    }
 }

@@ -32,7 +32,7 @@
 }
 
 .blam{
-    height:252px;
+    height:260px;
 }
 
 .err{
@@ -56,4 +56,9 @@
 
 .edit{
     height:340px;
+}
+
+.blah{
+    margin-bottom: 15px;
+    margin-top: 0px;
 }

@@ -54,7 +54,7 @@
 	                        	<input type="text" name="email" placeholder="Email..." class="form-email form-control" id="form-email" required 
                             pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' [(ngModel)]="temp.email" #email="ngModel">
 	                        </div>
-                          <span class="x" *ngIf="(!email.valid && email.dirty) || exists">Either the email is in the incorrect format or its already in use!</span>
+                          	<span class="x" *ngIf="(!email.valid && email.dirty)">The email is in the incorrect format!</span>						  
 
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="password">Password</label>

@@ -1,13 +1,13 @@
 <div class="container">
   <h3 class="text-left">Welcome to the Marketplace!</h3>
   <div class="text-left">
-    <a [routerLink]="['browse']" class="x">Browse</a>
+    <a [routerLink]="['browse/browse']" class="x">Browse</a>
     <a [routerLink]="[id]" class="yyy">My Listings</a>
     <a [routerLink]="['']" class="yyy">Sign Out</a>
   </div><br>
 
   <div class="container">
-    <div class="row" *ngFor="let product of products">
+    <div class="row blah" *ngFor="let product of products">
       <div class="col-sm-4 z text-left blam">
         <div class="imgholder">Product image goes here</div>
       </div>
@@ -21,9 +21,11 @@
         <h2>${{product.price}}</h2><br>
         <p>{{product.location}}</p><br>
 
-        <button *ngIf="product._seller==id" class="btn yy">Delete</button>
+        <button *ngIf="product._seller==id" (click)="delete_product(product._id)" class="btn yy">Delete</button>
         <button *ngIf="product._seller!=id" class="btn cont">Contact</button>
       </div>    
-
-
+    </div>
   </div>
+</div>
+<div class="container footer">
+</div>

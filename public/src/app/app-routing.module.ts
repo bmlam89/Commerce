@@ -8,9 +8,11 @@ import {LoginComponent} from './login/login.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'register',component:HomepageComponent},
+  {path:'register/register',redirectTo:'register'},
   {path:'browse',component:BrowseComponent},
   {path:'browse/:id',redirectTo:'listing'},
   {path:'browse/browse',redirectTo:'browse'},
+  {path:'browse/browse/browse',redirectTo:'browse'},
   {path:'listing',component:ListingComponent},
   {path:'listing/browse',redirectTo:'browse'},
   {path:'listing/home',redirectTo:''},
