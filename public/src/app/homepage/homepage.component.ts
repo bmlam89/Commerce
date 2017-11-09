@@ -49,51 +49,5 @@ export class HomepageComponent implements OnInit {
           this.router.navigate(['register']);
         }
     })
-    
-    
-    
-    
-    /*for(var user of this.users)
-    {
-      if(user.email==form.value.email)
-      {
-        this.exists = true;
-        this.router.navigate(['register']);
-        console.log("email exists",form.value.email)
-      }
-    }
-    if(!this.exists)
-    {
-      console.log('made it inside here')
-      this.service.email = form.value.email;
-      this.service.create_user(form);
-      jQuery(".modal").modal("hide");
-      this.router.navigate(['browse']);
-    }
-    /*else
-    {
-      this.router.navigate(['']);
-    }*/
-    
   }
-
 }
-
-
-
-
-      /*(response) => {
-        this.users = response.json()['user'];
-        if(this.users.length==0)
-        {
-          this.attempt = true;
-          this.router.navigate(['']);
-        }
-        else
-        {
-          this.service.id = this.users[0]._id;
-          this.attempt = true;
-          jQuery(".modal").modal("hide");
-          this.router.navigate(['browse']); 
-        }
-      }*/

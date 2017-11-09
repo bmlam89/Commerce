@@ -14,6 +14,7 @@ export class ApiService {
   users = []
   /* product service variables */
   products = [];
+  deletedid = [];
 
   /* user service methods */
   

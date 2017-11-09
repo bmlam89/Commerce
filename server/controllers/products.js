@@ -7,6 +7,7 @@ module.exports = {
        Product.find({},function(err,products){
            if(err){
                console.log(err);
+               response.json({err:err});
            }else{
                response.json({products:products});
            }
@@ -32,8 +33,10 @@ module.exports = {
                    user.save(function(err){
                        if(err){
                            console.log("the user error is:",err);
+                           response.json({err:"error"});
                        }else{
                            console.log("successfully saved user to db");
+                           response.json({success:"success"});
                        }
                    })
                }
@@ -52,6 +55,9 @@ module.exports = {
            product.save(function(err){
                if(err){
                    console.log(err,"something happened with updating product");
+                   response.json({err:err});
+               }else{
+                   response.json({success:"success"});
                }
            })
        })
@@ -62,6 +68,9 @@ module.exports = {
        Product.remove({_id:request.body.id},function(err){
            if(err){
                console.log("something went wrong with deleting product",err);
+               response.json({err:err});
+           }else{
+               response.json({success:"success"});
            }
        })
    }

@@ -9,6 +9,7 @@ import {ApiService} from '../api.service';
 export class BrowseComponent implements OnInit {
 
   id;
+  deletedid = [];
   products = [];
   constructor(private service:ApiService, private router:Router) { }
 
@@ -25,7 +26,13 @@ export class BrowseComponent implements OnInit {
   delete_product(id)
   {
     this.service.delete_product(id);
-    this.router.navigate(['browse']);
+    
+        this.deletedid = this.service.deletedid;
+        this.service.get_products(
+          (response)=>{
+            this.products = response.json()['products'];
+          }
+        )   
   }
 
 }

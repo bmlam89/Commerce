@@ -11,7 +11,7 @@ export class ListingComponent implements OnInit {
 
   id;
   products = [];
-  
+  deleteid;
   temp = {
     url:'',
     title:'',
@@ -36,7 +36,11 @@ export class ListingComponent implements OnInit {
   post_product(form)
   {
       this.service.post_product(form);
-      this.router.navigate(['browse']);
+      this.service.get_products(
+      (response)=>{
+        this.products = response.json()['products'];
+      }
+    )
   }
 
   update_product(form,product_id)
@@ -48,12 +52,21 @@ export class ListingComponent implements OnInit {
     this.product.location = form.value.location;
     this.product.id = this.id;
     this.service.update_product(this.product,product_id);
-    this.router.navigate(['browse']);
+    this.service.get_products(
+      (response)=>{
+        this.products = response.json()['products'];
+      }
+    )
   }
   delete_product(product_id)
   {
     this.service.delete_product(product_id);
-    this.router.navigate(['browse']);
+    this.service.get_products(
+      (response)=>{
+        this.products = response.json()['products'];
+      }
+    )
+    //this.router.navigate(['browse']);
   }
 
 }
