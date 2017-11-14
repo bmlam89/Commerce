@@ -39,6 +39,8 @@ export class ListingComponent implements OnInit {
       this.service.get_products(
       (response)=>{
         this.products = response.json()['products'];
+        form.reset();
+        this.router.navigate(['listing']);
       }
     )
   }
@@ -52,9 +54,13 @@ export class ListingComponent implements OnInit {
     this.product.location = form.value.location;
     this.product.id = this.id;
     this.service.update_product(this.product,product_id);
+    //this.router.navigate(['listing']);
     this.service.get_products(
       (response)=>{
         this.products = response.json()['products'];
+        this.router.navigate(['listing']);
+        //form.reset();
+        
       }
     )
   }
@@ -64,6 +70,7 @@ export class ListingComponent implements OnInit {
     this.service.get_products(
       (response)=>{
         this.products = response.json()['products'];
+        this.router.navigate(['listing']);
       }
     )
     //this.router.navigate(['browse']);

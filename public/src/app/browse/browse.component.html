@@ -3,32 +3,112 @@
   <div class="text-left">
     <a [routerLink]="['browse/browse']" class="x">Browse</a>
     <a [routerLink]="[id]" class="yyy">My Listings</a>
-    <a [routerLink]="['']" class="yyy">Sign Out</a>
+    <a [routerLink]="['']" class="yyy">Sign Out</a><br><br>
+    <form name="formdata">
+      <input type="text" name="search"  class="searchbar" placeholder="Search.." #search (keyup)="browse(search.value)">
+    </form>
   </div><br>
+  
 
   <div class="container">
-    <div class="row blah" *ngFor="let product of products">
-      <!--<div class="row blah" *ngFor="let id of deletedid">
-        <div class="row blah" *ngIf="id != product._id">-->
-          <div class="col-sm-4 z text-left blam">
-            <div class="imgholder">Product image goes here</div>
-          </div>
 
-          <div class="col-sm-6 z text-left">
-            <h2>{{product.title}}</h2><br>
-            <p class="abc">{{product.desc}}</p>
-          </div>
+           <div *ngIf="searchx">
+            <div  *ngFor="let product of products" class="row blah">
+          <!--<div class="row blah" *ngFor="let id of deletedid">
+            <div class="row blah" *ngIf="id != product._id">-->
+              <div *ngIf="product.title == search.value">
+                <div class="col-sm-4 z text-left blam">
+                  <div class="imgholder">Product image goes here</div>
+                </div>
 
-          <div class="col-sm-2 z text-left">
-            <h2>${{product.price}}</h2><br>
-            <p>{{product.location}}</p><br>
+                <div class="col-sm-6 z text-left">
+                  <h2>{{product.title}}</h2><br>
+                  <p class="abc">{{product.desc}}</p>
+                </div>
 
-            <button *ngIf="product._seller==id" (click)="delete_product(product._id)" class="btn yy">Delete</button>
-            <button *ngIf="product._seller!=id" class="btn cont">Contact</button>
-          </div>
-        <!--</div>  
-      </div>-->  
-    </div>
+                <div class="col-sm-2 z text-left">
+                  <h2>${{product.price}}</h2><br>
+                  <p>{{product.location}}</p><br>
+
+                  <button *ngIf="product._seller==id" (click)="delete_product(product._id)" class="btn yy">Delete</button>
+                  <button *ngIf="product._seller!=id" (click)="contact_seller(product._seller)" class="btn cont" data-toggle="modal" data-target="#myModal">Contact</button>
+                </div>
+
+                <div id="myModal" class="modal fade" role="dialog" *ngIf="modal == true">
+                  <div class="modal-dialog" *ngFor="let person of users">
+
+                    <div class="modal-content" *ngIf="person._id == userid">
+                      <div class="modal-header">
+                        <button type="button" (click)="close()" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Seller Info:</h4>
+                      </div>
+
+                      <div class="modal-body">
+                        <p>{{person.first}} {{person.last}}</p>
+                        <p>{{person.email}}</p>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            <!--</div>  
+          </div>-->  
+        </div>   
+
+
+
+   <!--<div id="testtest">-->
+        <div  *ngFor="let product of products" class="row blah testtest">
+          <!--<div class="row blah" *ngFor="let id of deletedid">
+            <div class="row blah" *ngIf="id != product._id">-->
+
+              <div class="col-sm-4 z text-left blam">
+                <div class="imgholder">Product image goes here</div>
+              </div>
+
+              <div class="col-sm-6 z text-left">
+                <h2>{{product.title}}</h2><br>
+                <p class="abc">{{product.desc}}</p>
+              </div>
+
+              <div class="col-sm-2 z text-left">
+                <h2>${{product.price}}</h2><br>
+                <p>{{product.location}}</p><br>
+
+                <button *ngIf="product._seller==id" (click)="delete_product(product._id)" class="btn yy">Delete</button>
+                <button *ngIf="product._seller!=id" (click)="contact_seller(product._seller)" class="btn cont" data-toggle="modal" data-target="#myModal">Contact</button>
+              </div>
+
+              <div id="myModal" class="modal fade" role="dialog" *ngIf="modal == true">
+                <div class="modal-dialog" *ngFor="let person of users">
+
+                  <div class="modal-content" *ngIf="person._id == userid">
+                    <div class="modal-header">
+                      <button type="button" (click)="close()" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Seller Info:</h4>
+                    </div>
+
+                    <div class="modal-body">
+                      <p>{{person.first}} {{person.last}}</p>
+                      <p>{{person.email}}</p>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--</div>  
+          </div>-->  
+        </div>
+    <!--</div>-->
+
   </div>
 </div>
 <div class="container footer">

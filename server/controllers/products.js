@@ -20,6 +20,7 @@ module.exports = {
        User.findOne({_id:request.body.product.id},function(err,user){
            var product = new Product({url:request.body.product.url,title:request.body.product.title,desc:request.body.product.desc,price:request.body.product.price,location:request.body.product.location});
            
+           console.log(product,"BACKEND PRODUCT");
            /* setup association between product and seller*/
            product._seller = user._id;
            /* push product to user array */
